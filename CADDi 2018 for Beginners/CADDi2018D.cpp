@@ -38,17 +38,6 @@ const ll MAX_N=1000;
 
 ll N,pn;
 
-map<ll,ll> mp;
-
-void solve_mp(ll pn){
-  for(ll i=2;i<=ceil(sqrt(pn));i++){
-    while(pn%i==0){
-      mp[i]++;
-      pn/=i;
-    }
-  }
-  if(pn!=1)mp[pn]++;
-}
 
 int main(){
   cin>>N;
