@@ -35,33 +35,21 @@ typedef pair<ll,ll> P;
 const ll mod=1000000007ll;
 const ll inf=1000000000000000ll;
 
-const ll MAX_N=2*100010;
+const ll MAX_N=50;
 
-ll n,a[MAX_N][2];
-bool used[MAX_N];
+ll N,A,x[MAX_N];
+vector<ll> minvec,zerovec,plusvec;
+
 
 int main(){
-  cin>>n;
-  for(ll i=1;i<=n;i++){
-    cin>>a[i][0];
-    cin>>a[i][1];
+  cin>>N>>A;
+  for(ll i=1;i<=N;i++){
+    cin>>x[i];
+    x[i]-=A;
+    if(x[i]>0)plusvec.push_back(x[i]);
+    else if(x[i]<0)minvec.push_back(x[i]);
+    else if(x[i]==0)zerovec.push_back(x[i]);
   }
-  ll pos=1;
-  used[1]=true;
-  for(ll i=0;i<n;i++){
-    cout<<pos<<" ";
-    for(ll j=0;j<2;j++){
-      if(!used[a[pos][j]]){
-        ll next=a[pos][j];
-        if(a[next][j]==a[pos][1-j]||a[next][1-j]==a[pos][1-j]){
-          pos=next;
-          used[pos]=true;
-          break;
-        }
-      }
-      else continue;
-    }
-  }
-  cout<<endl;
+  
   return 0;
 }
